@@ -32,12 +32,12 @@ function SearchField(props) {
         }
     }
 
-    const handleChange=async (target)=>{
-        if(target.innerText.length===0){
+    const handleChange=async (target)=>{        
+        if(target.value){
             const tempList= await getCharacterList(target.value);
             setList(tempList);
         }
-        else{
+        else if(target.innerText){
             setIsLoading(true);
             const tempList= await getCharacterList(target.innerText);
             setList(tempList);
