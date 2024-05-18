@@ -1,5 +1,6 @@
 import GridLayout from '../Components/GridLayout';
 import { useEffect, useState } from 'react';
+import NavigationButtons from '../Components/NavigationButtons';
 import Loading from '../Common/Loading';
 import SearchField from '../Components/SearchField';
 import ErrorBar from '../Common/ErrorBar';
@@ -46,6 +47,14 @@ function ContentPage(props) {
       setIsLoading(false);
     }
   
+    const handleNextClick=()=>{
+      setCurrPage(currPage+1);
+    }
+  
+    const handlePrevClick= ()=>{
+      setCurrPage(currPage-1);
+    }
+  
     useEffect(()=>{
       renderList(currPage);
     }, [currPage]);
@@ -58,6 +67,7 @@ function ContentPage(props) {
             <ErrorBar isError={isError}></ErrorBar>
 
             <GridLayout list={characterList}></GridLayout>
+            <NavigationButtons handlePrevClick={handlePrevClick} handleNextClick={handleNextClick}></NavigationButtons>
         </div>
     );
 }
