@@ -8,6 +8,7 @@ import { generatePeopleURL } from '../Utilities/utility';
 
 function ContentPage(props) {
     const [characterList, setCharacterList]=useState([]);
+    const [hideFirst, setHideFirst] = useState('');
     const [currPage, setCurrPage]=useState(1);
     const [isPrev, setIsPrev] = useState(false);
     const [isNext, setIsNext] = useState(false);
@@ -47,7 +48,10 @@ function ContentPage(props) {
         setIsPrev(list.previous?true:false);
         setCharacterList(list.results);
       }
-  
+      
+      setInterval(()=>{
+        setHideFirst('hide');
+      }, 1000);
       setIsLoading(false);
     }
   
@@ -69,6 +73,7 @@ function ContentPage(props) {
 
     return (
         <div className='main-container'>
+            <div className={"start-screen " + hideFirst}></div >
             <SearchField ></SearchField>
 
             <Loading isLoading={isLoading}></Loading>

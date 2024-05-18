@@ -15,7 +15,7 @@ function CharacterCard(props) {
   const color = getColor(getIndexFromSpecies(props.data.species));
   
   return (
-    <Card sx={{ width: 240 }} style={{backgroundColor: color}}>
+    <Card sx={{ width: 240 }} style={{backgroundColor: color}} className="float-class">
       <CardActionArea onClick={()=>setHideModal(true)}>
         <CardMedia
           component="img"

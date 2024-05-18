@@ -3,12 +3,56 @@ html, body, .App{
   min-height: 100vh;
 }
 
+::-webkit-scrollbar {
+  width: 1px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(170, 170, 170);
+}
+
 .App {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background-color: black;
+  background: black  url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.start-screen{
+  background: url('https://assets.materialup.com/uploads/74d2d77d-01d4-400d-8917-34c323497c03/preview.gif');
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 1s;
+}
+
+
+@media only screen and (orientation:portrait) {
+  .start-screen{
+    background: url('https://e0.pxfuel.com/wallpapers/184/327/desktop-wallpaper-darth-vader-live-iphone-darth-maul-face.jpg');
+    background-color: black;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
 }
 
 .aligin-center{
@@ -24,7 +68,7 @@ html, body, .App{
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0000004f;
+  background-color: #000000cc;
   z-index: 2;
 }
 
@@ -40,16 +84,46 @@ html, body, .App{
 
 .search-field{
   width: 50%;
-  padding: 20px;
-}
-::-webkit-scrollbar {
-  width: 1px;
-}
-
-::-webkit-scrollbar-track {
-  background: #ffffff00;
+  min-width: 15rem;
+  padding: 6px;
+  margin: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  border-radius: 4px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgb(170, 170, 170);
+.nav-button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+@keyframes float {
+	0% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+	50% {
+		box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+		transform: translatey(-10px);
+	}
+	100% {
+		box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+		transform: translatey(0px);
+	}
+}
+
+.float-class:hover{
+  animation: float 2s ease-in-out infinite;
+}
+
+.hide{
+  opacity: 0;
+  z-index: 0;
 }

@@ -50,12 +50,13 @@ function SearchField(props) {
         <div className="search-field">
             <ErrorBar isError={isError}/>
             <Loading isLoading={isLoading}/>
+
             <Autocomplete
-                freeSolo
-                options={list.map((option) => option.name)}
-                onInputChange={(e) => handleChange(e.target)}
-                renderInput={(params) => <TextField {...params} label="Search" style={{color:"#fff" }} />}
-            />
+            freeSolo
+            options={list.map((option) => option.name)}
+            onInputChange={(e) => handleChange(e.target)}
+            renderInput={(params) => <TextField {...params} label="Search" />}
+        />
 
         {
           !hideModal ? "" : <DetailsModal show={hideModal} closeModal={()=>setHideModal(false)} data={list[0]}></DetailsModal>
