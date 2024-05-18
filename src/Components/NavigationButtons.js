@@ -4,8 +4,8 @@ function NavigationButtons(props) {
   
   return (
     <div className="nav-button">
-        <Button variant="contained" onClick={()=>{props.handlePrevClick()}}>Prev</Button>
-        <Button variant="contained" onClick={()=>{props.handleNextClick()}}>Next</Button>
+        <Button variant="contained" disabled={!props.isPrev} onClick={()=>{props.handlePrevClick()}}>Prev</Button>
+        <Button variant="contained" disabled={!props.isNext} onClick={()=>{props.handleNextClick()}}>Next</Button>
     </div>
   );
 }

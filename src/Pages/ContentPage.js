@@ -9,6 +9,8 @@ import { generatePeopleURL } from '../Utilities/utility';
 function ContentPage(props) {
     const [characterList, setCharacterList]=useState([]);
     const [currPage, setCurrPage]=useState(1);
+    const [isPrev, setIsPrev] = useState(false);
+    const [isNext, setIsNext] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setIsError] = useState(false);
   
@@ -41,6 +43,8 @@ function ContentPage(props) {
       const list = await getCharacterList(idx);
 
       if(list){
+        setIsNext(list.next?true:false);
+        setIsPrev(list.previous?true:false);
         setCharacterList(list.results);
       }
   
@@ -48,11 +52,15 @@ function ContentPage(props) {
     }
   
     const handleNextClick=()=>{
-      setCurrPage(currPage+1);
+      if(isNext){
+        setCurrPage(currPage+1);
+      }
     }
   
     const handlePrevClick= ()=>{
-      setCurrPage(currPage-1);
+      if(isPrev){
+        setCurrPage(currPage-1);
+      }
     }
   
     useEffect(()=>{
@@ -67,7 +75,7 @@ function ContentPage(props) {
             <ErrorBar isError={isError}></ErrorBar>
 
             <GridLayout list={characterList}></GridLayout>
-            <NavigationButtons handlePrevClick={handlePrevClick} handleNextClick={handleNextClick}></NavigationButtons>
+            <NavigationButtons isPrev={isPrev} handlePrevClick={handlePrevClick} isNext= {isNext} handleNextClick={handleNextClick}></NavigationButtons>
         </div>
     );
 }
