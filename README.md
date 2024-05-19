@@ -1,8 +1,8 @@
 # galvix-frontend-assignment
 
 ## Install packages
-run npm i
+Execute Command: npm i
 
 ## Run app
-run npm run start
+Execute Command: npm run start
 It will start the app at http://localhost:3000/
