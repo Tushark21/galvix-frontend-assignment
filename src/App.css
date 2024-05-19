@@ -84,7 +84,7 @@ html, body, .App{
 
 .search-field{
   width: 50%;
-  min-width: 15rem;
+  min-width: 20rem;
   padding: 6px;
   margin: 20px;
   margin-bottom: 30px;

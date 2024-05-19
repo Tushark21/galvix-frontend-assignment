@@ -1,5 +1,6 @@
 import { Alert } from '@mui/material';
 import Snackbar from '@mui/material/Snackbar';
+import { ERROR_MSG } from '../Constants/constants';
 
 function ErrorBar(props) {
     return (
@@ -11,7 +12,7 @@ function ErrorBar(props) {
                 variant="filled"
                 sx={{ width: '100%' }}
             >
-                Some Error Occur
+                {ERROR_MSG}
             </Alert>
         </Snackbar>
     );

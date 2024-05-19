@@ -5,6 +5,7 @@ import Modal from '@mui/material/Modal';
 import ErrorBar from '../Common/ErrorBar';
 import { generateDate, getColor, getIndexFromSpecies } from '../Utilities/utility';
 import InfoList from './InfoList';
+import Loading from '../Common/Loading';
 
 const style = {
     position: 'absolute',
@@ -19,8 +20,9 @@ const style = {
 };
 
 function DetailsModal(props) {
-    const [listData, setListData]=useState([]);
+    const [listData, setListData] = useState([]);
     const [isError, setIsError] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     const color = getColor(getIndexFromSpecies(props.data.species));
 
@@ -41,6 +43,8 @@ function DetailsModal(props) {
         catch(err){
             handleError(err);
         }
+
+        setIsLoading(false);
     }
 
     useEffect(()=>{
@@ -51,7 +55,8 @@ function DetailsModal(props) {
             props.data.films.length,
             generateDate(Date.parse(props.data.created))
         ];
-
+        
+        setListData(preData);
         getCharacterInfo(preData, props.data.homeworld);
     }, []);
     
@@ -66,10 +71,12 @@ function DetailsModal(props) {
                 >
                 <Box sx={style} bgcolor={color}>
                     <Typography variant="h5" component="h2" style={{fontFamily: "Turret Road, sans-serif"}}>
-                    {props.data?props.data.name:""}
+                    { props.data ? props.data.name : "" }
                     </Typography>
 
                     <InfoList data={listData}></InfoList>
+                    
+                    <Loading isLoading={isLoading}></Loading>
                 </Box>
             </Modal>
         </div>

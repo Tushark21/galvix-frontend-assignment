@@ -5,7 +5,6 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { getColor, getImageUrl, getIndexFromSpecies } from '../Utilities/utility';
-import { SPECIES_URL } from '../Constants.js/urls';
 import DetailsModal from './DetailsModal';
 
 function CharacterCard(props) {
@@ -31,7 +30,7 @@ function CharacterCard(props) {
       </CardActionArea>
 
       {
-        !hideModal?"":<DetailsModal show={hideModal} closeModal={()=>setHideModal(false)} data={props.data}></DetailsModal>
+        !hideModal ? "" : <DetailsModal show={hideModal} closeModal={()=>setHideModal(false)} data={props.data}></DetailsModal>
       }
     </Card>
   );

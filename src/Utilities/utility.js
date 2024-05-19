@@ -1,4 +1,4 @@
-import { IMAGE_URL, PEOPLE_URL, SPECIES_URL } from "../Constants.js/urls";
+import { IMAGE_URL, PEOPLE_URL, SPECIES_URL } from "../Constants/urls";
 import colorNameList from 'color-name-list';
 
 const generateDate=(dateString)=>{
@@ -12,17 +12,17 @@ const generateDate=(dateString)=>{
     return [d, m, y].join('-');
 }
 
-const generatePeopleURL= (query)=>{
+const generatePeopleURL = (query)=>{
     return PEOPLE_URL + `?${query}`;
 }
 
 const getImageUrl = (url) => {
-    const imageUrl=url.replace(PEOPLE_URL, IMAGE_URL);
+    const imageUrl = url.replace(PEOPLE_URL, IMAGE_URL);
     return imageUrl.substring(0, imageUrl.length-1)+ '.jpg';
 }
 
-const getIndexFromSpecies= (species)=>{
-    let color=species.length>0 ? species[0].replace(SPECIES_URL, '') : '0/';
+const getIndexFromSpecies = (species)=>{
+    let color = species.length>0 ? species[0].replace(SPECIES_URL, '') : '0/';
     return color.substring(0, color.length-1);
 }
 

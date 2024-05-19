@@ -44,8 +44,8 @@ function ContentPage(props) {
       const list = await getCharacterList(idx);
 
       if(list){
-        setIsNext(list.next?true:false);
-        setIsPrev(list.previous?true:false);
+        setIsNext(list.next ? true : false);
+        setIsPrev(list.previous ? true : false);
         setCharacterList(list.results);
       }
       
@@ -80,7 +80,7 @@ function ContentPage(props) {
             <ErrorBar isError={isError}></ErrorBar>
 
             <GridLayout list={characterList}></GridLayout>
-            <NavigationButtons isPrev={isPrev} handlePrevClick={handlePrevClick} isNext= {isNext} handleNextClick={handleNextClick}></NavigationButtons>
+            <NavigationButtons isPrev={isPrev} handlePrevClick={handlePrevClick} isNext={isNext} handleNextClick={handleNextClick}></NavigationButtons>
         </div>
     );
 }

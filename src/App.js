@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header title={"The Star Wars"}></Header>
+      <Header></Header>
       <Router>
         <Routes>
           <Route path="/" exact element={<ContentPage />} />
